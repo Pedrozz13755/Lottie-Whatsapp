@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lottie Sticker Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="backdrop" aria-hidden="true"></div>
+    <main class="layout">
+      <section class="hero">
+        <p class="badge">VIRAL XD XD XD</p>
+        <h1>Lottie Sticker Builder</h1>
+        <p class="lead">
+          Convert an image or Lottie JSON into a WhatsApp <strong>.was</strong>
+          animated sticker directly in your browser.
+        </p>
+        <ul class="meta">
+          <li>Runs fully client-side</li>
+          <li>Works on Windows, macOS, and Linux</li>
+          <li>Uses your project template files or your own JSON</li>
+        </ul>
+      </section>
+
+      <section class="panel" aria-label="Sticker builder">
+        <form id="builder-form" novalidate>
+          <label class="field">
+            <span>1. Image file (optional)</span>
+            <input
+              id="image-input"
+              type="file"
+              accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
+            />
+            <small
+              >Optional if you upload a Lottie JSON that already has the
+              embedded image.</small
+            >
+          </label>
+
+          <label class="field">
+            <span>Optional Lottie JSON file</span>
+            <input
+              id="lottie-json-input"
+              type="file"
+              accept=".json,application/json"
+            />
+            <small
+              >Upload your own Lottie JSON to replace the template or reuse it
+              as-is if it already has the embedded image.</small
+            >
+          </label>
+
+          <label class="field field-inline">
+            <input id="apply-to-all-json" type="checkbox" checked />
+            <span
+              >Apply the selected JSON to every animation JSON file in the
+              package</span
+            >
+          </label>
+
+          <label class="field">
+            <span>2. Lottie JSON target</span>
+            <select id="json-path">
+              <option value="animation/animation_secondary.json" selected>
+                animation/animation_secondary.json
+              </option>
+              <option value="animation/animation.json">
+                animation/animation.json
+              </option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>3. Output file name</span>
+            <input
+              id="output-name"
+              type="text"
+              value="sticker.was"
+              maxlength="120"
+              spellcheck="false"
+            />
+          </label>
+
+          <button id="build-button" type="submit">Build .was</button>
+        </form>
+
+        <div class="status" aria-live="polite">
+          <p id="status-text">
+            Select an image or a Lottie JSON file to start.
+          </p>
+        </div>
+
+        <div class="preview-wrap">
+          <p class="preview-title">Image preview</p>
+          <img id="image-preview" alt="Selected image preview" hidden />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
