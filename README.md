@@ -115,20 +115,6 @@ python -m http.server 5500 --directory docs
 ```
 
 Then open `http://localhost:5500`.
-
-### Publish on GitHub Pages
-
-1. Push your changes to GitHub.
-2. Open repository settings on GitHub.
-3. Go to **Pages**.
-4. Set source to **Deploy from a branch**.
-5. Select your branch (usually `main`) and folder **`/docs`**.
-6. Save and wait for deployment.
-
-Your app will be available at:
-
-`https://<your-username>.github.io/<your-repo>/`
-
 ---
 
 ## 🧠 Parameters
